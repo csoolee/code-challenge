@@ -12,10 +12,9 @@ page of the website, not just the home page
 
 Python version: 3.4
 
-Libraries used: BeautifulSoup (pip install beautifulsoup4)
-
-Tools used : Pyqt - installed using windows binary on website
-            PyQt4-4.11.4-gpl-Py3.4-Qt4.8.7-x32
+Packages/Tools used: BeautifulSoup (pip install beautifulsoup4)
+                     PyQt4 - installed using windows binary on website (PyQt4-4.11.4-gpl-Py3.4-Qt4.8.7-x32)
+                     
 *************************
 """
 
@@ -100,11 +99,9 @@ def get_links(content, domainName):
         else:
             newurl = "http://" + str(hostName) + str(pathName)
         # assume that if hostname is not found, we have a link to another page on the same domain
-        if hostName is None and newurl not in visitedPages:
+        if (hostName is None or hostName == domainName) and newurl not in visitedPages:
             newurl = domainName + pathName
             toBeVisited.add(newurl)
-        # not sure if we need this case?
-        #if ()
 
 if __name__ == "__main__":
     main()
